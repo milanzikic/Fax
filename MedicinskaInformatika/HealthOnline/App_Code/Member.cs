@@ -11,43 +11,50 @@ public class Member
 
 #region properties
 
-    enum MemberTypes
+    public enum MemberTypes
     {
         User = 1,
         Admin = 2,
+        Undefined = -1,
         God = 99
     };
 
     private int memberId;
-    private int memberType;
+    private MemberTypes memberType;
     private string memberName;
     private string memberSurname;
     private string memberUsername;
+    private bool isLoggedIn;
     
 
-    protected int MemberId {
+    public int MemberId {
         get { return this.memberId; }
         set { this.memberId = value; }
     }
 
-    protected int MemberType {
+    public MemberTypes MemberType {
         get { return this.memberType; }
         set { this.memberType = value; }
     }
 
-    protected string MemberName {
+    public string MemberName {
         get { return this.memberName; }
         set { this.memberName = value; }
     }
 
-    protected string MemberSurname {
+    public string MemberSurname {
         get { return this.memberSurname; }
         set { this.memberSurname = value; }
     }
 
-    protected string MemberUsername {
+    public string MemberUsername {
         get { return this.memberUsername; }
         set { this.memberUsername = value; }
+    }
+
+    public bool IsLogggedIn {
+        get { return this.isLoggedIn; }
+        set { this.isLoggedIn = value; }
     }
 #endregion
 
@@ -56,12 +63,26 @@ public class Member
 		//
 		// TODO: Add constructor logic here
 		//
+        MemberId = 0;
+        MemberName = string.Empty;
+        MemberSurname = string.Empty;
+        MemberType = MemberTypes.Undefined;
+        MemberUsername = string.Empty;
 	}
-    public Member(int memberType) 
+    public Member(MemberTypes memberType) 
     {
-        //switch(memberType){
-        //    case MemberTypes.User: this.MemberType = MemberTypes.User;
-        //}    
+        switch (memberType)
+        {
+            case MemberTypes.Admin:
+                this.MemberType = MemberTypes.Admin;
+                break;
+            case MemberTypes.God:
+                this.MemberType = MemberTypes.God;
+                break;
+            case MemberTypes.User:
+                this.MemberType = MemberTypes.User;
+                break;
+        }    
 
     }
 }
