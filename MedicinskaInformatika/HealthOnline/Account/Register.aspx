@@ -19,33 +19,57 @@
                 <legend>Registration Form</legend>
                 <ol>
                     <li>
-                        <asp:Label ID="Label1" runat="server" AssociatedControlID="UserName">User name</asp:Label>
-                        <asp:TextBox runat="server" ID="UserName" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="UserName"
-                            CssClass="field-validation-error" ErrorMessage="The user name field is required." />
+                        <asp:Label ID="lblPin" runat="server" AssociatedControlID="txtPinCode">PIN</asp:Label>
+                        <asp:TextBox ID="txtPinCode" runat="server" ></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvPin" runat="server" ControlToValidate="txtPinCode" 
+                            CssClass="field-validation-error" ErrorMessage="Niste uneli PIN!" ></asp:RequiredFieldValidator>
                     </li>
                     <li>
-                        <asp:Label ID="Label2" runat="server" AssociatedControlID="Email">Email address</asp:Label>
-                        <asp:TextBox runat="server" ID="Email" TextMode="Email" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Email"
-                            CssClass="field-validation-error" ErrorMessage="The email address field is required." />
+                        <asp:Label ID="lblJmbg" runat="server" AssociatedControlID="txtJMBG">JMBG</asp:Label>
+                        <asp:TextBox ID="txtJMBG" runat="server" ></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvJmbg" runat="server" ControlToValidate="txtJMBG"
+                            CssClass="field-validation-error" ErrorMessage="Niste uneli JMBG!" ></asp:RequiredFieldValidator>
                     </li>
                     <li>
-                        <asp:Label ID="Label3" runat="server" AssociatedControlID="Password">Password</asp:Label>
-                        <asp:TextBox runat="server" ID="Password" TextMode="Password" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Password"
-                            CssClass="field-validation-error" ErrorMessage="The password field is required." />
+                        <asp:Label ID="lblUsername" runat="server" AssociatedControlID="txtUserName">Korisnicko Ime</asp:Label>
+                        <asp:TextBox runat="server" ID="txtUserName" />
+                        <asp:RequiredFieldValidator ID="rfvUsername" runat="server" ControlToValidate="txtUserName"
+                            CssClass="field-validation-error" ErrorMessage="Niste uneli Korisniko Ime!" />
+                    </li>                    
+                    <li>
+                        <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword">Lozinka</asp:Label>
+                        <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" />
+                        <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword"
+                            CssClass="field-validation-error" ErrorMessage="Niste uneli Lozinku!" />
                     </li>
                     <li>
-                        <asp:Label ID="Label4" runat="server" AssociatedControlID="ConfirmPassword">Confirm password</asp:Label>
-                        <asp:TextBox runat="server" ID="ConfirmPassword" TextMode="Password" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="ConfirmPassword"
-                                CssClass="field-validation-error" Display="Dynamic" ErrorMessage="The confirm password field is required." />
-                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
-                                CssClass="field-validation-error" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
+                        <asp:Label ID="lblConfirmPassword" runat="server" AssociatedControlID="txtConfirmPassword">Potvrdite lozinku</asp:Label>
+                        <asp:TextBox runat="server" ID="txtConfirmPassword" TextMode="Password" />
+                        <asp:RequiredFieldValidator ID="rfvConfirmPassword" runat="server" ControlToValidate="txtConfirmPassword"
+                                CssClass="field-validation-error" Display="Dynamic" ErrorMessage="Niste potvrdili lozinku!" />
+                        <asp:CompareValidator ID="cmpvPassword" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword"
+                                CssClass="field-validation-error" Display="Dynamic" ErrorMessage="Uneta Lozinka nije potvrdjena!" />
+                    </li>
+                    <li>
+                        <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmail">Email address</asp:Label>
+                        <asp:TextBox runat="server" ID="txtEmail" TextMode="Email" />
+                        <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail"
+                            CssClass="field-validation-error" ErrorMessage="Niste uneli Email adresu!" />
+                    </li>
+                    <li>
+                        <asp:Label ID="lblTelefon" runat="server" AssociatedControlID="txtTelefon">Telefon</asp:Label>
+                        <asp:TextBox ID="txtTelefon" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvTelefon" runat="server" ControlToValidate="txtTelefon"
+                            CssClass="field-validation-error" ErrorMessage="Niste uneli Telefon!"></asp:RequiredFieldValidator>
+                    </li>
+                    <li>
+                        <asp:Label ID="lblMobilni" runat="server" AssociatedControlID="txtMobilni">Mobilni</asp:Label>
+                        <asp:TextBox ID="txtMobilni" runat="server" ></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvMobilni" runat="server" ControlToValidate="txtMobilni"
+                            CssClass="field-validation-error" ErrorMessage="Niste uneli Mobilni!"></asp:RequiredFieldValidator>
                     </li>
                 </ol>
-                <asp:Button ID="Button1" runat="server" CommandName="MoveNext" Text="Register" OnClick="Button1_Click" />
+                <asp:Button ID="btnRegister" runat="server" CommandName="MoveNext" Text="Register" OnClick="btnRegister_Click" />
             </fieldset>
         </div>
     </asp:Panel>

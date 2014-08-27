@@ -26,9 +26,9 @@ public partial class Account_Register : Page
         //Response.Redirect(continueUrl);
         
     }
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void btnRegister_Click(object sender, EventArgs e)
     {
         pgDBWorker dbWorker = new pgDBWorker();
-        dbWorker.Register(1234, "2706986730092","milan", "1234567", "zikic.milan@gmail.com", "123456", "123456");
+        dbWorker.Register(Convert.ToInt32(txtPinCode.Text.Trim()), txtJMBG.Text.Trim(), txtUserName.Text.Trim(), txtPassword.Text.Trim(), txtEmail.Text.Trim(), txtTelefon.Text.Trim(), txtMobilni.Text.Trim());
     }
 }
